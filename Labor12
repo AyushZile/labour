@@ -1,0 +1,123 @@
+#include <stdio.h>
+ struct Labour
+ {
+ 	int Serial;
+ 	char n[10];
+ 	float marks;
+ }s[20];
+ int main()
+ {
+ 	void inp(int);
+	void disp(int);
+	void search(int);
+	void update(int);
+	int i,n,ch;
+	printf("\nEnter No. of Labours:");
+ 	scanf("%d",&n);
+	while(ch!=5)
+	{
+	 	printf("\nMenu\n1.Input Labour Data\n2.Display Labour Data\n3.Search Labour Data\n4.Update Labour Data\n5.Exit\n");
+	    printf("\nEnter Your choice:\n");
+	    scanf("%d",&ch);
+		switch(ch)
+		{
+			case 1:
+				inp(n);
+				break;
+			
+			case 2:
+				disp(n);
+			    break;
+			
+			case 3:
+				search(n);
+			    break;
+			
+			case 4:
+				update(n);
+			    break;
+			case 5:
+	            break;    
+		}
+	
+	}
+	return 0;
+ }
+ 
+void inp(int k)
+ {
+ 	int i;
+	printf("\nEnter Labour Serial No., Name, Wages:\n");
+	for(i=1;i<=k;i++)
+ 	{
+ 	  printf("\nLabour %d Data:\n",i);
+	  scanf("%d%s%f",&s[i].Serial,&s[i].n,&s[i].marks);	
+	}
+ 	
+ }
+void disp(int k)
+ {
+ 	int i;	 
+	printf("\n");
+	printf("\n");
+	printf("Labour Data\n");
+	printf("\n");
+	printf("\nSerial no.\tName\tWages\n");
+	for(i=1;i<=k;i++)
+ 	{
+	 	printf("\n");
+ 	    printf("%d\t%s\t%f",s[i].Serial,s[i].n,s[i].marks); 
+	}
+	printf("\n");
+ }
+ 
+ void search(int k)
+ {
+ 	int i,search,f;
+ 	printf("\nEnter Serial No to be searched:\n");
+ 	scanf("%d",&search);
+ 	
+ 	for(i=1;i<=k;i++)
+ 	{
+	 	if(s[i].Serial==search)
+	 	{
+	 		f=0;
+	 		break;
+		 }
+		 
+	}
+	if(f==0)
+		{
+			printf("\nLabour Data for %d:",i);
+			printf("\n%d\t%s\t%f",s[i].Serial,s[i].n,s[i].marks);
+		}
+		else
+			printf("\nInvalid no.");
+ 	
+ }
+ void update(int k)
+ {
+ 	int i,search,f;
+ 	printf("\nEnter Serial No. to be searched:\n");
+ 	scanf("%d",&search);
+ 	
+ 	for(i=1;i<=k;i++)
+ 	{
+	 	if(s[i].Serial==search)
+	 	{
+	 		f=0;
+	 		break;
+		 }
+		 
+	}
+	if(f==0)
+		{
+			printf("\nLabour at Serial no. [%d]:",i);
+			printf("\nEnter New Data:");
+            printf("\nEnter Labour SerialNo., Name, Wages:\n");
+   		     scanf("%d%s%f",&s[i].Serial,&s[i].n,&s[i].marks);	
+    		printf("\nUpdated");
+		}
+		else
+			printf("\nData Not Present");
+ }
